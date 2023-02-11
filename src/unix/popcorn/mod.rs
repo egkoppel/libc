@@ -105,7 +105,7 @@ pub struct addrinfo {
     pub ai_next: *mut ::addrinfo,
 }
 
-#[repc(C)]
+#[repr(C)]
 pub struct tm {
     pub tm_sec: ::c_int,
     pub tm_min: ::c_int,
