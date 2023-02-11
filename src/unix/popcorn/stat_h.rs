@@ -7,25 +7,28 @@ pub const S_IFDIR: ::c_int = 0x04000;
 pub const S_IFLNK: ::c_int = 0x0A000;
 pub const S_IFSOCK: ::c_int = 0x0C000;
 
-pub const S_IRWXU: ::c_int = 0700;
-pub const S_IRUSR: ::c_int = 0400;
-pub const S_IWUSR: ::c_int = 0200;
-pub const S_IXUSR: ::c_int = 0100;
-pub const S_IRWXG: ::c_int = 070;
-pub const S_IRGRP: ::c_int = 040;
-pub const S_IWGRP: ::c_int = 020;
-pub const S_IXGRP: ::c_int = 010;
-pub const S_IRWXO: ::c_int = 07;
-pub const S_IROTH: ::c_int = 04;
-pub const S_IWOTH: ::c_int = 02;
-pub const S_IXOTH: ::c_int = 01;
-pub const S_ISUID: ::c_int = 04000;
-pub const S_ISGID: ::c_int = 02000;
-pub const S_ISVTX: ::c_int = 01000;
+pub const S_IRWXU: ::c_int = 0o700;
+pub const S_IRUSR: ::c_int = 0o400;
+pub const S_IWUSR: ::c_int = 0o200;
+pub const S_IXUSR: ::c_int = 0o100;
+pub const S_IRWXG: ::c_int = 0o70;
+pub const S_IRGRP: ::c_int = 0o40;
+pub const S_IWGRP: ::c_int = 0o20;
+pub const S_IXGRP: ::c_int = 0o10;
+pub const S_IRWXO: ::c_int = 0o7;
+pub const S_IROTH: ::c_int = 0o4;
+pub const S_IWOTH: ::c_int = 0o2;
+pub const S_IXOTH: ::c_int = 0o1;
+pub const S_ISUID: ::c_int = 0o4000;
+pub const S_ISGID: ::c_int = 0o2000;
+pub const S_ISVTX: ::c_int = 0o1000;
 
 pub const S_IREAD: ::c_int = S_IRUSR;
 pub const S_IWRITE: ::c_int = S_IWUSR;
 pub const S_IEXEC: ::c_int = S_IXUSR;
+
+//pub const UTIME_NOW: ::c_long = ((1i32 << 30) - 1i32);
+//pub const UTIME_OMIT: ::c_long = ((1i32 << 30) - 2i32);
 
 #[repr(C)]
 pub struct stat {
@@ -45,4 +48,9 @@ pub struct stat {
     pub st_ctime_nsec: ::c_long,
     pub st_blksize: ::blksize_t,
     pub st_blocks: ::blkcnt_t,
+}
+
+extern "C" {
+	#[no_mangle]
+	pub fn futimens(fd: ::c_int, times: *const ::timespec) -> ::c_int;
 }

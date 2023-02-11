@@ -71,3 +71,18 @@ pub const AF_UNSPEC: ::c_int = PF_UNSPEC;
 pub const AF_NETLINK: ::c_int = PF_NETLINK;
 pub const AF_BRIDGE: ::c_int = PF_BRIDGE;
 pub const AF_PACKET: ::c_int = PF_PACKET;
+
+extern "C" {
+	#[no_mangle]
+	pub fn bind(socket: ::c_int, address: *const ::sockaddr, address_len: ::socklen_t) -> ::c_int;
+
+	#[no_mangle]
+	pub fn recvfrom(
+		socket: ::c_int,
+		buf: *mut ::c_void,
+		len: ::size_t,
+		flags: ::c_int,
+		addr: *mut ::sockaddr,
+		addrlen: *mut ::socklen_t,
+	) -> ::ssize_t;
+}

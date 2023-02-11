@@ -1,20 +1,31 @@
-pub mod errno_h;
+mod dlfcn_h;
+pub use self::dlfcn_h::*;
+mod errno_h;
 pub use self::errno_h::*;
-
-mod stdlib_h;
-pub use self::stdlib_h::*;
-
-mod socket_h;
-pub use self::socket_h::*;
-
+mod fcntl_h;
+pub use self::fcntl_h::*;
 mod in_h;
 pub use self::in_h::*;
-
+mod ioctl_h;
+pub use self::ioctl_h::*;
+mod pthread_h;
+pub use self::pthread_h::*;
+mod seek_whence_h;
+pub use self::seek_whence_h::*;
+mod socket_h;
+pub use self::socket_h::*;
 mod stat_h;
 pub use self::stat_h::*;
-
+mod stdlib_h;
+pub use self::stdlib_h::*;
+mod time_h;
+pub use self::time_h::*;
+mod uio_h;
+pub use self::uio_h::*;
 mod un_h;
 pub use self::un_h::*;
+mod unistd_h;
+pub use self::unistd_h::*;
 
 pub type c_char = i8;
 pub type wchar_t = i32;
@@ -24,27 +35,15 @@ pub type c_ulong = u64;
 
 pub type blkcnt_t = ::c_long;
 pub type blksize_t = ::c_long;
-pub type clock_t = ::c_long; //
 pub type clockid_t = ::c_long;
 pub type dev_t = ::c_ulong;
 pub type fsblkcnt_t = u64;
 pub type fsfilcnt_t = u64;
 pub type ino_t = ::c_long;
 pub type mode_t = ::c_int;
-pub type nfds_t = ::c_ulong; //
+pub type nfds_t = ::size_t;
 pub type nlink_t = ::c_int;
-pub type off_t = ::c_longlong; //
-pub type pthread_t = *mut ::c_void;
-pub type pthread_attr_t = *mut ::c_void;
-pub type pthread_cond_t = *mut ::c_void;
-pub type pthread_condattr_t = *mut ::c_void;
-// Must be usize due to libstd/sys_common/thread_local.rs,
-// should technically be *mut ::c_void
-pub type pthread_key_t = usize;
-pub type pthread_mutex_t = *mut ::c_void;
-pub type pthread_mutexattr_t = *mut ::c_void;
-pub type pthread_rwlock_t = *mut ::c_void;
-pub type pthread_rwlockattr_t = *mut ::c_void;
+pub type off_t = ::c_long;
 pub type rlim_t = ::c_ulong;
 pub type sa_family_t = ::c_uint;
 pub type sem_t = *mut ::c_void;
@@ -53,7 +52,6 @@ pub type socklen_t = ::c_uint;
 pub type speed_t = ::c_uint;
 pub type suseconds_t = i64;
 pub type tcflag_t = ::c_uint;
-pub type time_t = ::c_long;
 
 pub const NCCS: usize = 11;
 
@@ -78,14 +76,6 @@ pub struct dirent {
 }
 
 #[repr(C)]
-pub struct Dl_info {
-    pub dli_fname: *const ::c_char,
-    pub dli_fbase: *mut ::c_void,
-    pub dli_sname: *const ::c_char,
-    pub dli_saddr: *mut ::c_void,
-}
-
-#[repr(C)]
 pub struct addrinfo {
     pub ai_flags: ::c_int,
     pub ai_family: ::c_int,
@@ -95,21 +85,6 @@ pub struct addrinfo {
     pub ai_addr: *mut ::sockaddr,
     pub ai_canonname: *mut ::c_char,
     pub ai_next: *mut ::addrinfo,
-}
-
-#[repr(C)]
-pub struct tm {
-    pub tm_sec: ::c_int,
-    pub tm_min: ::c_int,
-    pub tm_hour: ::c_int,
-    pub tm_mday: ::c_int,
-    pub tm_mon: ::c_int,
-    pub tm_year: ::c_int,
-    pub tm_wday: ::c_int,
-    pub tm_yday: ::c_int,
-    pub tm_isdst: ::c_int,
-    pub tm_gmtoff: ::c_long,
-    pub tm_zone: *const ::c_char,
 }
 
 #[repr(C)]
