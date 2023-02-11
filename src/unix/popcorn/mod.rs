@@ -36,3 +36,153 @@ pub type speed_t = ::c_uint;
 pub type suseconds_t = i64;
 pub type tcflag_t = ::c_uint;
 pub type time_t = ::c_long;
+
+pub const NCCS: usize = 11;
+
+#[repr(C)]
+pub struct passwd {
+    pub pw_name: *mut ::c_char,
+    pub pw_passwd: *mut ::c_char,
+    pub pw_uid: ::uid_t,
+    pub pw_gid: ::gid_t,
+    pub pw_gecos: *mut ::c_char,
+    pub pw_dir: *mut ::c_char,
+    pub pw_shell: *mut ::c_char,
+}
+
+#[repr(C)]
+pub struct sockaddr {
+    pub sa_family: ::sa_family_t,
+    pub sa_data: [::c_char; 14],
+}
+
+#[repr(C)]
+pub struct stat {
+    pub st_dev: ::dev_t,
+    pub st_ino: ::ino_t,
+    pub st_mode: ::mode_t,
+    pub st_nlink: ::nlink_t,
+    pub st_uid: ::uid_t,
+    pub st_gid: ::gid_t,
+    pub st_rdev: ::dev_t,
+    pub st_size: ::off_t,
+    pub st_atime: ::time_t,
+    pub st_atime_nsec: ::c_long,
+    pub st_mtime: ::time_t,
+    pub st_mtime_nsec: ::c_long,
+    pub st_ctime: ::time_t,
+    pub st_ctime_nsec: ::c_long,
+    pub st_blksize: ::blksize_t,
+    pub st_blocks: ::blkcnt_t,
+}
+
+#[repr(C)]
+pub struct dirent {
+    pub d_ino: ::ino_t,
+    pub d_off: ::off_t,
+    pub d_reclen: ::c_ushort,
+    pub d_type: ::c_uchar,
+    pub d_name: [::c_char; 1024],
+}
+
+#[repr(C)]
+pub struct Dl_info {
+    pub dli_fname: *const ::c_char,
+    pub dli_fbase: *mut ::c_void,
+    pub dli_sname: *const ::c_char,
+    pub dli_saddr: *mut ::c_void,
+}
+
+#[repr(C)]
+pub struct addrinfo {
+    pub ai_flags: ::c_int,
+    pub ai_family: ::c_int,
+    pub ai_socktype: ::c_int,
+    pub ai_protocol: ::c_int,
+    pub ai_addrlen: ::socklen_t,
+    pub ai_addr: *mut ::sockaddr,
+    pub ai_canonname: *mut ::c_char,
+    pub ai_next: *mut ::addrinfo,
+}
+
+#[repc(C)]
+pub struct tm {
+    pub tm_sec: ::c_int,
+    pub tm_min: ::c_int,
+    pub tm_hour: ::c_int,
+    pub tm_mday: ::c_int,
+    pub tm_mon: ::c_int,
+    pub tm_year: ::c_int,
+    pub tm_wday: ::c_int,
+    pub tm_yday: ::c_int,
+    pub tm_isdst: ::c_int,
+    pub tm_gmtoff: ::c_long,
+    pub tm_zone: *const ::c_char,
+}
+
+#[repr(C)]
+pub struct fd_set {
+    fds_bits: [u8; 128],
+}
+
+#[repr(C)]
+pub struct lconv {
+    pub thousands_sep: *const ::c_char,
+    pub grouping: *const ::c_char,
+    pub decimal_point: *const ::c_char,
+    pub mon_decimal_point: *const ::c_char,
+    pub mon_thousands_sep: *const ::c_char,
+    pub mon_grouping: *const ::c_char,
+    pub positive_sign: *const ::c_char,
+    pub negative_sign: *const ::c_char,
+    pub currency_symbol: *const ::c_char,
+    pub frac_digits: ::c_char,
+    pub p_cs_precedes: ::c_char,
+    pub n_cs_precedes: ::c_char,
+    pub p_sep_by_space: ::c_char,
+    pub n_sep_by_space: ::c_char,
+    pub p_sign_posn: ::c_char,
+    pub n_sign_posn: ::c_char,
+    pub int_curr_symbol: *const ::c_char,
+    pub int_frac_digits: ::c_char,
+    pub int_p_cs_precedes: ::c_char,
+    pub int_n_cs_precedes: ::c_char,
+    pub int_p_sep_by_space: ::c_char,
+    pub int_n_sep_by_space: ::c_char,
+    pub int_p_sign_posn: ::c_char,
+    pub int_n_sign_posn: ::c_char,
+}
+
+#[repr(C)]
+pub struct statvfs {
+    pub f_bsize: ::c_ulong,
+    pub f_frsize: ::c_ulong,
+    pub f_blocks: ::fsblkcnt_t,
+    pub f_bfree: ::fsblkcnt_t,
+    pub f_bavail: ::fsblkcnt_t,
+    pub f_files: ::fsfilcnt_t,
+    pub f_ffree: ::fsfilcnt_t,
+    pub f_favail: ::fsfilcnt_t,
+    pub f_fsid: ::c_ulong,
+    pub f_flag: ::c_ulong,
+    pub f_namemax: ::c_ulong,
+}
+
+#[repr(C)]
+pub struct termios {
+    pub c_iflag: ::tcflag_t,
+    pub c_oflag: ::tcflag_t,
+    pub c_cflag: ::tcflag_t,
+    pub c_lflag: ::tcflag_t,
+    pub c_cc: [::cc_t; ::NCCS],
+    pub c_ispeed: ::speed_t,
+    pub c_ospeed: ::speed_t,
+}
+
+#[repr(C)]
+pub struct sigaction {
+    pub sa_sigaction: ::sighandler_t,
+    pub sa_mask: ::sigset_t,
+    pub sa_flags: ::c_int,
+    pub sa_restorer: ::Option<extern fn()>,
+}
