@@ -1,11 +1,11 @@
-pub const S_IFMT: ::c_int = 0x0;F000
+pub const S_IFMT: ::c_int = 0x0F000;
 pub const S_IFBLK: ::c_int = 0x06000;
 pub const S_IFCHR: ::c_int = 0x02000;
 pub const S_IFIFO: ::c_int = 0x01000;
 pub const S_IFREG: ::c_int = 0x08000;
 pub const S_IFDIR: ::c_int = 0x04000;
-pub const S_IFLNK: ::c_int = 0x0;A000
-pub const S_IFSOCK: ::c_int = 0x0;C000
+pub const S_IFLNK: ::c_int = 0x0A000;
+pub const S_IFSOCK: ::c_int = 0x0C000;
 
 pub const S_IRWXU: ::c_int = 0700;
 pub const S_IRUSR: ::c_int = 0400;

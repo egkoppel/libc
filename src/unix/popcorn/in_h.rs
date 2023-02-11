@@ -6,11 +6,11 @@ pub struct sockaddr {
 
 #[repr(C)]
 pub struct sockaddr_in {
-	pub sin_family: ::sa_family_t;
-	pub sin_port: ::in_port_t;
-	pub sin_addr: ::in_addr;
-	pad[u8; 8];
-};
+	pub sin_family: ::sa_family_t,
+	pub sin_port: ::in_port_t,
+	pub sin_addr: ::in_addr,
+	pad: [u8; 8],
+}
 
 #[repr(C)]
 pub struct sockaddr_in6 {
@@ -23,5 +23,5 @@ pub struct sockaddr_in6 {
 
 #[repr(C)]
 pub struct in_addr {
-	pub s_addr: ::in_addr_t;
-};
+	pub s_addr: ::in_addr_t,
+}

@@ -1,4 +1,4 @@
-mod errno;
+pub mod errno;
 pub use self::errno::*;
 
 mod stdlib;
