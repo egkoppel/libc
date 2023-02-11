@@ -1570,6 +1570,9 @@ cfg_if! {
     } else if #[cfg(target_os = "nto")] {
         mod nto;
         pub use self::nto::*;
+    } else if #[cfg(target_os = "popcorn")] {
+        mod popcorn;
+        pub use self::popcorn::*;
     } else {
         // Unknown target_os
     }
