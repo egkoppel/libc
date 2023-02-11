@@ -1,20 +1,20 @@
-pub mod errno;
-pub use self::errno::*;
+pub mod errno_h;
+pub use self::errno_h::*;
 
-mod stdlib;
-pub use self::stdlib::*;
+mod stdlib_h;
+pub use self::stdlib_h::*;
 
-mod socket;
-pub use self::socket::*;
+mod socket_h;
+pub use self::socket_h::*;
 
 mod in_h;
 pub use self::in_h::*;
 
-mod stat;
-pub use self::stat::*;
+mod stat_h;
+pub use self::stat_h::*;
 
-mod un;
-pub use self::un::*;
+mod un_h;
+pub use self::un_h::*;
 
 pub type c_char = i8;
 pub type wchar_t = i32;
