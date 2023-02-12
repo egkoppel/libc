@@ -152,3 +152,8 @@ pub struct sigaction {
     pub sa_flags: ::c_int,
     pub sa_restorer: ::Option<extern fn()>,
 }
+
+extern "C" {
+	#[no_mangle]
+	pub fn setgroups(size: ::size_t, list: *const ::gid_t) -> ::c_int;
+}
