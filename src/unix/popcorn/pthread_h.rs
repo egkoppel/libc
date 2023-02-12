@@ -59,4 +59,7 @@ extern "C" {
 		attr: *mut pthread_condattr_t,
 		clock_id: ::clockid_t,
 	) -> ::c_int;
+
+	#[no_mangle]
+	pub fn pthread_setname_np(thread: ::pthread_t, name: *const ::c_char) -> ::c_int;
 }
