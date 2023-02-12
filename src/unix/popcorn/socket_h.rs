@@ -76,6 +76,8 @@ pub const SHUT_RD: ::c_int = 1;
 pub const SHUT_RDWR: ::c_int = 2;
 pub const SHUT_WR: ::c_int = 3;
 
+pub type sa_family_t = ::c_uint;
+
 extern "C" {
 	#[no_mangle]
 	pub fn bind(socket: ::c_int, address: *const ::sockaddr, address_len: ::socklen_t) -> ::c_int;
@@ -90,3 +92,9 @@ extern "C" {
 		addrlen: *mut ::socklen_t,
 	) -> ::ssize_t;
 }
+
+#[repr(C)]
+pub struct sockaddr_storage {
+	pub ss_family: sa_family_t,
+	padding[u8; 128 - ::core::mem::size_of<sa_family_t>()];
+};
