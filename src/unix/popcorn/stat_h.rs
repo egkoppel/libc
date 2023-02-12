@@ -27,8 +27,8 @@ pub const S_IREAD: ::c_int = S_IRUSR;
 pub const S_IWRITE: ::c_int = S_IWUSR;
 pub const S_IEXEC: ::c_int = S_IXUSR;
 
-pub const UTIME_NOW: ::c_long = (((1 as ::c_long) << 30) - (1 as ::c_long)));
-pub const UTIME_OMIT: ::c_long = (((1 as ::c_long) << 30) - (2 as ::c_long)));
+pub const UTIME_NOW: ::c_long = (((1 as ::c_long) << 30) - (1 as ::c_long));
+pub const UTIME_OMIT: ::c_long = (((1 as ::c_long) << 30) - (2 as ::c_long));
 
 #[repr(C)]
 pub struct stat {
