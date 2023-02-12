@@ -35,7 +35,6 @@ pub type c_ulong = u64;
 
 pub type blkcnt_t = ::c_long;
 pub type blksize_t = ::c_long;
-pub type clockid_t = ::c_long;
 pub type dev_t = ::c_ulong;
 pub type fsblkcnt_t = u64;
 pub type fsfilcnt_t = u64;
@@ -54,17 +53,6 @@ pub type suseconds_t = i64;
 pub type tcflag_t = ::c_uint;
 
 pub const NCCS: usize = 11;
-
-#[repr(C)]
-pub struct passwd {
-    pub pw_name: *mut ::c_char,
-    pub pw_passwd: *mut ::c_char,
-    pub pw_uid: ::uid_t,
-    pub pw_gid: ::gid_t,
-    pub pw_gecos: *mut ::c_char,
-    pub pw_dir: *mut ::c_char,
-    pub pw_shell: *mut ::c_char,
-}
 
 #[repr(C)]
 pub struct dirent {

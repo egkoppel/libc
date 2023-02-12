@@ -1,13 +1,14 @@
-pub const CLOCK_REALTIME: ::c_int = 0;
-pub const CLOCK_MONOTONIC: ::c_int = 1;
-pub const CLOCK_PROCESS_CPUTIME_ID: ::c_int = 2;
-pub const CLOCK_THREAD_CPUTIME_ID: ::c_int = 3;
-pub const CLOCK_MONOTONIC_RAW: ::c_int = 4;
-pub const CLOCK_REALTIME_COARSE: ::c_int = 5;
-pub const CLOCK_MONOTONIC_COARSE: ::c_int = 6;
-pub const CLOCK_BOOTTIME: ::c_int = 7;
+pub const CLOCK_REALTIME: ::clockid_t = 0;
+pub const CLOCK_MONOTONIC: ::clockid_t = 1;
+pub const CLOCK_PROCESS_CPUTIME_ID: ::clockid_t = 2;
+pub const CLOCK_THREAD_CPUTIME_ID: ::clockid_t = 3;
+pub const CLOCK_MONOTONIC_RAW: ::clockid_t = 4;
+pub const CLOCK_REALTIME_COARSE: ::clockid_t = 5;
+pub const CLOCK_MONOTONIC_COARSE: ::clockid_t = 6;
+pub const CLOCK_BOOTTIME: ::clockid_t = 7;
 
 pub type clock_t = ::c_long;
+pub type clockid_t = ::c_long;
 pub type time_t = ::c_long;
 
 #[repr(C)]

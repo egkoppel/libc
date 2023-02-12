@@ -1,7 +1,7 @@
-pub const FIONREAD: ::c_int = 0x541B;
-pub const FIONBIO: ::c_int = 0x5421;
-pub const FIONCLEX: ::c_int = 0x5450;
-pub const FIOCLEX: ::c_int = 0x5451;
+pub const FIONREAD: ::c_ulong = 0x541B;
+pub const FIONBIO: ::c_ulong = 0x5421;
+pub const FIONCLEX: ::c_ulong = 0x5450;
+pub const FIOCLEX: ::c_ulong = 0x5451;
 
 pub const SIOCGIFNAME: ::c_int = 0x8910;
 pub const SIOCGIFCONF: ::c_int = 0x8912;

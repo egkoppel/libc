@@ -72,6 +72,10 @@ pub const AF_NETLINK: ::c_int = PF_NETLINK;
 pub const AF_BRIDGE: ::c_int = PF_BRIDGE;
 pub const AF_PACKET: ::c_int = PF_PACKET;
 
+pub const SHUT_RD: ::c_int = 1;
+pub const SHUT_RDWR: ::c_int = 2;
+pub const SHUT_WR: ::c_int = 3;
+
 extern "C" {
 	#[no_mangle]
 	pub fn bind(socket: ::c_int, address: *const ::sockaddr, address_len: ::socklen_t) -> ::c_int;
