@@ -12,7 +12,11 @@ pub struct sockaddr_in {
 	pad: [u8; 8],
 }
 
-impl core::clone::Clone for sockaddr_in {}
+impl core::clone::Clone for sockaddr_in {
+	fn clone(&self) -> Self {
+        *self
+    }
+}
 impl core::marker::Copy for sockaddr_in {}
 
 #[repr(C)]
@@ -29,7 +33,11 @@ pub struct in_addr {
 	pub s_addr: ::in_addr_t,
 }
 
-impl core::clone::Clone for in_addr {}
+impl core::clone::Clone for in_addr {
+	fn clone(&self) -> Self {
+        *self
+    }
+}
 impl core::marker::Copy for in_addr {}
 
 pub const IPV6_JOIN_GROUP: ::c_int = 1;

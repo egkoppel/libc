@@ -51,7 +51,9 @@ pub struct stat {
 }
 
 impl core::clone::Clone for stat {
-
+	fn clone(&self) -> Self {
+        *self
+    }
 }
 
 extern "C" {
