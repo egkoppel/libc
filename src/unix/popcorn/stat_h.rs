@@ -50,6 +50,7 @@ pub struct stat {
     pub st_blocks: ::blkcnt_t,
 }
 
+impl core::marker::Copy for stat {}
 impl core::clone::Clone for stat {
 	fn clone(&self) -> Self {
         *self
