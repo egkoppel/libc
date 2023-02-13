@@ -96,5 +96,5 @@ extern "C" {
 #[repr(C)]
 pub struct sockaddr_storage {
 	pub ss_family: sa_family_t,
-	padding: [u8; 128 - ::core::mem::size_of::<sa_family_t>()],
+	pub padding: [u8; 128 - ::core::mem::size_of::<sa_family_t>()],
 }

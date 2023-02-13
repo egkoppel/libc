@@ -9,7 +9,7 @@ pub struct sockaddr_in {
 	pub sin_family: ::sa_family_t,
 	pub sin_port: ::in_port_t,
 	pub sin_addr: ::in_addr,
-	pad: [u8; 8],
+	pub pad: [u8; 8],
 }
 
 impl core::clone::Clone for sockaddr_in {
