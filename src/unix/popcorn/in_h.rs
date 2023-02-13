@@ -28,6 +28,13 @@ pub struct sockaddr_in6 {
 	pub sin6_scope_id: u32,
 }
 
+impl core::clone::Clone for sockaddr_in6 {
+	fn clone(&self) -> Self {
+        *self
+    }
+}
+impl core::marker::Copy for sockaddr_in6 {}
+
 #[repr(C)]
 pub struct in_addr {
 	pub s_addr: ::in_addr_t,
