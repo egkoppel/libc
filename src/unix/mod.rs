@@ -35,6 +35,9 @@ cfg_if! {
     } else if #[cfg(target_os = "nto")] {
         pub type uid_t = i32;
         pub type gid_t = i32;
+    } else if #[cfg(target_os = "popcorn")] {
+        pub type uid_t = ::c_uint;
+        pub type gid_t = ::c_uint;
     } else {
         pub type uid_t = u32;
         pub type gid_t = u32;
