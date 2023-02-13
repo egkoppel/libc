@@ -28,6 +28,8 @@ pub struct in_addr {
 	pub s_addr: ::in_addr_t,
 }
 
+impl core::marker::Copy for in_addr {}
+
 pub const IPV6_JOIN_GROUP: ::c_int = 1;
 pub const IPV6_LEAVE_GROUP: ::c_int = 2;
 pub const IPV6_MULTICAST_HOPS: ::c_int = 3;
