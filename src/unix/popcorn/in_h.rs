@@ -5,13 +5,14 @@ pub struct sockaddr {
 }
 
 #[repr(C)]
-#[core::predule::v1::derive(core::copy::Copy, core::clone::Clone)]
 pub struct sockaddr_in {
 	pub sin_family: ::sa_family_t,
 	pub sin_port: ::in_port_t,
 	pub sin_addr: ::in_addr,
 	pad: [u8; 8],
 }
+
+impl core::copy::Copy for sockaddr_in {}
 
 #[repr(C)]
 pub struct sockaddr_in6 {

@@ -31,7 +31,6 @@ pub const UTIME_NOW: ::c_long = (((1 as ::c_long) << 30) - (1 as ::c_long));
 pub const UTIME_OMIT: ::c_long = (((1 as ::c_long) << 30) - (2 as ::c_long));
 
 #[repr(C)]
-#[core::predule::v1::derive(core::clone::Clone)]
 pub struct stat {
     pub st_dev: ::dev_t,
     pub st_ino: ::ino_t,
@@ -49,6 +48,10 @@ pub struct stat {
     pub st_ctime_nsec: ::c_long,
     pub st_blksize: ::blksize_t,
     pub st_blocks: ::blkcnt_t,
+}
+
+impl core::clone::Clone for stat {
+
 }
 
 extern "C" {
