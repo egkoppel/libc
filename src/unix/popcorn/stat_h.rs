@@ -31,6 +31,7 @@ pub const UTIME_NOW: ::c_long = (((1 as ::c_long) << 30) - (1 as ::c_long));
 pub const UTIME_OMIT: ::c_long = (((1 as ::c_long) << 30) - (2 as ::c_long));
 
 #[repr(C)]
+#[derive(core::clone::Clone)]
 pub struct stat {
     pub st_dev: ::dev_t,
     pub st_ino: ::ino_t,

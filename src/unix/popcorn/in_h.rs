@@ -5,6 +5,7 @@ pub struct sockaddr {
 }
 
 #[repr(C)]
+#[derive(core::copy::Copy, core::clone::Clone)]
 pub struct sockaddr_in {
 	pub sin_family: ::sa_family_t,
 	pub sin_port: ::in_port_t,
