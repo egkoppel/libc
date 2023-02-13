@@ -1,3 +1,5 @@
+mod convolution_h;
+pub use self::convolution_h::*;
 mod dlfcn_h;
 pub use self::dlfcn_h::*;
 mod errno_h;
