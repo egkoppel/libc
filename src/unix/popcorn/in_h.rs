@@ -12,7 +12,7 @@ pub struct sockaddr_in {
 	pad: [u8; 8],
 }
 
-impl core::copy::Copy for sockaddr_in {}
+impl core::marker::Copy for sockaddr_in {}
 
 #[repr(C)]
 pub struct sockaddr_in6 {
