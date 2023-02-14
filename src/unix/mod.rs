@@ -407,6 +407,12 @@ cfg_if! {
         #[cfg_attr(feature = "rustc-dep-of-std",
                    link(name = "c", cfg(not(target_feature = "crt-static"))))]
         extern {}
+    } else if #[cfg(target_os = "popcorn")] {
+        #[link(name = "c", kind = "static")]
+        #[link(name = "m", kind = "static")]
+        #[link(name = "rt", kind = "static")]
+        #[link(name = "pthread", kind = "static")]
+        extern {}
     } else {
         #[link(name = "c")]
         #[link(name = "m")]
