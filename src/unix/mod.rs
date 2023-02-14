@@ -410,8 +410,6 @@ cfg_if! {
     } else if #[cfg(target_os = "popcorn")] {
         #[link(name = "c", kind = "static")]
         #[link(name = "m", kind = "static")]
-        #[link(name = "rt", kind = "static")]
-        #[link(name = "pthread", kind = "static")]
         extern {}
     } else {
         #[link(name = "c")]
