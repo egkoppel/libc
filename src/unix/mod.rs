@@ -408,8 +408,18 @@ cfg_if! {
                    link(name = "c", cfg(not(target_feature = "crt-static"))))]
         extern {}
     } else if #[cfg(target_os = "popcorn")] {
-        #[link(name = "c", kind = "static")]
-        #[link(name = "m", kind = "static")]
+        #[link(name = "c", kind = "static", modifiers = "-bundle",
+            cfg(target_feature = "crt-static"))]
+        #[link(name = "m", kind = "static", modifiers = "-bundle",
+            cfg(target_feature = "crt-static"))]
+        #[link(name = "rt", kind = "static", modifiers = "-bundle",
+            cfg(target_feature = "crt-static"))]
+        #[link(name = "pthread", kind = "static", modifiers = "-bundle",
+            cfg(target_feature = "crt-static"))]
+        #[link(name = "m", cfg(not(target_feature = "crt-static")))]
+        #[link(name = "c", cfg(not(target_feature = "crt-static")))]
+        #[link(name = "rt", cfg(not(target_feature = "crt-static")))]
+        #[link(name = "pthread", cfg(not(target_feature = "crt-static")))]
         extern {}
     } else {
         #[link(name = "c")]
